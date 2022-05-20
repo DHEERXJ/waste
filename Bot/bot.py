@@ -2,7 +2,6 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ( CommandHandler, Filters, MessageHandler, Updater)
 from message import Editmessage, Sendmessage, logger
-from Miscellaneous.Scraper import pastebin, text_scraper, throwbin, ghostbin
 import os
 import telepot
 import urllib.request
