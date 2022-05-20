@@ -59,7 +59,7 @@ def ssc(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -81,7 +81,7 @@ def fssc(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -103,7 +103,7 @@ def fpan(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -126,7 +126,7 @@ def inter(update, context):
     print(info)
     logger.info(text)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -148,7 +148,7 @@ def finter(update, context):
     print(info)
     logger.info(text)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -170,7 +170,7 @@ def pic(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods cann't be seen!!"
         Sendmessage(chat_id,text)
     else:		
@@ -192,7 +192,7 @@ def fpic(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods cann't be seen!!"
         Sendmessage(chat_id,text)
     else:		
@@ -215,7 +215,7 @@ def bd(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -238,7 +238,7 @@ def aadhar(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -267,7 +267,7 @@ def faadhar(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
@@ -290,7 +290,7 @@ def eamcet(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:
@@ -312,7 +312,7 @@ def caste(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:
@@ -334,7 +334,7 @@ def income(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637":
+    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:
