@@ -17,6 +17,7 @@ dia='✅'
 
 os.environ['TZ'] = 'America/Buenos_Aires'
 
+gods=["21951A6626","21951A6637","21951A6627","21951A6614"]
 
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
@@ -58,7 +59,7 @@ def ssc(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
+    if textt in gods:":
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
