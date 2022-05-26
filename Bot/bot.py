@@ -144,7 +144,7 @@ def addgod(update, context):
         global gods
         textt=tempp.upper()
         gods.append(textt)
-        text = Done!
+        text = "Done!"
         Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
