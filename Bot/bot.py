@@ -59,7 +59,7 @@ def ssc(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt in gods:":
+    if textt in gods:
         text = "Gods data not available"
         Sendmessage(chat_id,text)
     else:		
