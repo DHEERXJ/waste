@@ -18,7 +18,7 @@ dia='✅'
 os.environ['TZ'] = 'America/Buenos_Aires'
 
 gods=["21951A6626","21951A6637","21951A6627","21951A6614"]
-
+members = ["2141450636","809309749","2045746007"]
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
@@ -54,113 +54,156 @@ def ssc(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt in gods:
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_SSC.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!"
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_SSC.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 def fssc(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_SSC.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!"
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_SSC.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 def fpan(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_PAN_CARD.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!"
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_PAN_CARD.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
+def addgod(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    global members
+    print(info)
+    logger.info(text)
+    text =  update.message.text.split(' ',1)
+    if chat_id in members:
+        tempp=text[-1]
+        global gods
+        textt=tempp.upper()
+        gods.append(textt)
+        text = Done!
+        Sendmessage(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
 ##################################################################################################################################################
 def inter(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     print(info)
     logger.info(text)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_INTER.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_INTER.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 def finter(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
     text =  update.message.text.split(' ',1)
+    global members
     tempp=text[-1]
     print(info)
     logger.info(text)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_INTER.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_INTER.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 def pic(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -168,21 +211,26 @@ def pic(update, context):
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
+    global members
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods cann't be seen!!"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods can't be seen!!"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 def fpic(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -190,163 +238,202 @@ def fpic(update, context):
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
+    global members
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods cann't be seen!!"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods cann't be seen!!"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_PHOTO.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_PHOTO.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 ################################################################################################################################
 def bd(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 ################################################################################################################################################
 def aadhar(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
+    global members
     userid= info['username']
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Aadhar.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Aadhar.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 	
 def all_details(update, context):
-    funcs = [pic, aadhar, ssc, inter, bd, eamcet, caste, income]
-    for i in funcs:
-        try: i(update, context)
-        except: pass
+    if chat_id in members:
+        funcs = [pic, aadhar, ssc, inter, bd, eamcet, caste, income]
+        for i in funcs:
+            try: i(update, context)
+            except: pass
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
 	
 def faadhar(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
     text =  update.message.text.split(' ',1)
+    global members
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_AADHAR_CARD.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+    else:
+        text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    else:		
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/IARE/STAFF/{}/DOC/{}_AADHAR_CARD.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
 ##########################################################################################################################################################
 def eamcet(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
     text =  update.message.text.split(' ',1)
+    global members
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
-        Sendmessage(chat_id,text)
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_EAMCET_RANK.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
     else:
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_EAMCET_RANK.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
 def caste(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
-        Sendmessage(chat_id,text)
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Caste.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
     else:
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Caste.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
 def income(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
+    global members
     text =  update.message.text.split(' ',1)
     tempp=text[-1]
     logger.info(text)
     print(info)
     textt=tempp.upper()
-    if textt=="21951A6626" or textt == "21951A6627" or textt == "21951A6637" or textt == "21951A6614":
-        text = "Gods data not available"
-        Sendmessage(chat_id,text)
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Income.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
     else:
-        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Income.jpg".format(textt,textt)
-        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
-        payload = {
-            "chat_id" : chat_id,
-            "photo" : photos,
-            "caption" : "✅ Done!!"
-        }
-        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-        res=requests.post(to_url , data=payload)
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
 #####################################################################################################################################################################
 
 
@@ -370,6 +457,7 @@ def main():
     dp.add_handler(CommandHandler("all", all_details))
     dp.add_handler(CommandHandler("eamcet", eamcet))
     dp.add_handler(CommandHandler("bd", bd))
+    dp.add_handler(CommandHandler("addgod", addgod))
     dp.add_handler(CommandHandler("Aadhar", aadhar))
     dp.add_handler(CommandHandler("botcmds", botcmds))
     dp.add_handler(CommandHandler("ssc", ssc))
