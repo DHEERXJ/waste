@@ -149,7 +149,7 @@ def addgod(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-##################################################################################################################################################
+#############################################################################################################################################
 def inter(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
