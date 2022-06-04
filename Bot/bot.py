@@ -346,6 +346,8 @@ def picture_in_range(update, context):
     lower_lim = text[-2].upper()
     base = text[-3].upper()
     gender = text[-4].upper()
+
+    Sendmessage(chat_id, " ".join([upper_lim, lower_lim, base, gender]))
     
     if any(c.isalpha() for c in upper_lim) and any(c.isalpha() for c in lower_lim):
 	a1, n1 = lower_lim[0], int(lower_lim[1])
