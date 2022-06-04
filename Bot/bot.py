@@ -12,7 +12,7 @@ import random
 import string
 import time
 import json
-import math
+import math, string
 dia='✅'
 
 os.environ['TZ'] = 'America/Buenos_Aires'
@@ -328,6 +328,70 @@ def all_details(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 	
+def picture_in_range(update, context):
+	
+    global bot_token
+	
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    global members
+    userid= info['username']
+    #text =  update.message.text.split(' ',1)
+    #tempp=text[-1]
+    #logger.info(text)
+    #print(info)
+    #textt=tempp.upper()
+
+    upper_lim = text[-1].upper()
+    lower_lim = text[-2].upper()
+    base = text[-3].upper()
+    gender = text[-4].upper()
+    
+    if any(c.isalpha() for c in upper_lim) and any(c.isalpha() for c in lower_lim):
+	a1, n1 = lower_lim[0], int(lower_lim[1])
+	a2, n2 = upper_lim[0], int(upper_lim[1])
+	all_caps = list(string.ascii_uppercase)
+	if a1 >= a2:
+		Sendmessage(chat_id,"Invalid range!")
+		return None
+	while a1 <= a2:
+		while n1 <= 9:
+			rno = base + a1 + str(n1)
+			#send pic logic generalised
+			photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
+			payload = {
+				"chat_id" : chat_id,
+				"photo" : photos,
+				"caption" : "✅ Done!!"
+			    }
+			to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            		res=requests.post(to_url , data=payload)
+			n1 += 1
+		else:
+			n1 = 0
+			a1 = all_caps[ all_caps.index(a1) + 1 ]
+			
+    elif not(any(c.isalpha() for c in upper_lim) or any(c.isalpha() for c in lower_lim)):
+	
+	n1, n2 = int(lower_lim), int(upper_lim)
+	if n1 >= n2:
+		Sendmessage(chat_id, "Invalid range; Syntax: /picrange gender base lowerlimit upperlimit")
+	while n1 <= n2:
+		if len(str(n1)) == 1:
+			ton1 = "0" + str(n1)
+		else:
+			ton1 = str(n1)
+		rno = base + ton1
+		photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
+		payload = {
+			"chat_id" : chat_id,
+			"photo" : photos,
+			"caption" : "✅ Done!!"
+		    }
+		to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+		res=requests.post(to_url , data=payload)
+		n1 += 1
+	
 def faadhar(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -469,6 +533,7 @@ def main():
     dp.add_handler(CommandHandler("fpan", fpan))
     dp.add_handler(CommandHandler("fpic", fpic))
     dp.add_handler(CommandHandler("faadhar", faadhar))
+    dp.add_handler(CommandHandler("picrange", picture_in_range))
     logger.info("Bot Started!!!")
     updater.start_polling()
     updater.idle()
