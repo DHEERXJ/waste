@@ -336,7 +336,7 @@ def picture_in_range(update, context):
     info = update.effective_user
     global members
     userid= info['username']
-    #text =  update.message.text.split(' ',1)
+    text =  update.message.text.split(' ',1)
     #tempp=text[-1]
     #logger.info(text)
     #print(info)
