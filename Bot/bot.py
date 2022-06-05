@@ -374,53 +374,51 @@ def picture_in_range(update, context):
     lower_lim = text[-2].upper()
     base = text[-3].upper()
     gender = text[-4].upper()
-
     Sendmessage(chat_id, " ".join([upper_lim, lower_lim, base, gender]))
     
     if any(c.isalpha() for c in upper_lim) and any(c.isalpha() for c in lower_lim):
-	a1, n1 = lower_lim[0], int(lower_lim[1])
-	a2, n2 = upper_lim[0], int(upper_lim[1])
-	all_caps = list(string.ascii_uppercase)
-	if a1 >= a2:
-		Sendmessage(chat_id,"Invalid range!")
-		return None
-	while a1 <= a2:
-		while n1 <= 9:
-			rno = base + a1 + str(n1)
-			#send pic logic generalised
-			photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
-			payload = {
+        a1, n1 = lower_lim[0], int(lower_lim[1])
+        a2, n2 = upper_lim[0], int(upper_lim[1])
+        all_caps = list(string.ascii_uppercase)
+        if a1 >= a2:
+            Sendmessage(chat_id,"Invalid range!")
+            return None
+        while a1 <= a2:
+            while n1 <= 9:
+                rno = base + a1 + str(n1)
+                #send pic logic generalised
+                photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
+                payload = {
 				"chat_id" : chat_id,
 				"photo" : photos,
 				"caption" : "✅ Done!!"
 			    }
-			to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-            		res=requests.post(to_url , data=payload)
-			n1 += 1
+                to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+                res=requests.post(to_url , data=payload)
+                n1 += 1
 		else:
-			n1 = 0
-			a1 = all_caps[ all_caps.index(a1) + 1 ]
+                    n1 = 0
+                    a1 = all_caps[ all_caps.index(a1) + 1 ]
 			
     elif not(any(c.isalpha() for c in upper_lim) or any(c.isalpha() for c in lower_lim)):
-	
-	n1, n2 = int(lower_lim), int(upper_lim)
-	if n1 >= n2:
-		Sendmessage(chat_id, "Invalid range; Syntax: /picrange gender base lowerlimit upperlimit")
-	while n1 <= n2:
-		if len(str(n1)) == 1:
-			ton1 = "0" + str(n1)
-		else:
-			ton1 = str(n1)
-		rno = base + ton1
-		photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
-		payload = {
+        n1, n2 = int(lower_lim), int(upper_lim)
+        if n1 >= n2:
+            Sendmessage(chat_id, "Invalid range; Syntax: /picrange gender base lowerlimit upperlimit")
+        while n1 <= n2:
+            if len(str(n1)) == 1:
+                ton1 = "0" + str(n1)
+                else:
+                    ton1 = str(n1)
+                rno = base + ton1
+                photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
+                payload = {
 			"chat_id" : chat_id,
 			"photo" : photos,
 			"caption" : "✅ Done!!"
 		    }
-		to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-		res=requests.post(to_url , data=payload)
-		n1 += 1
+                to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+                res=requests.post(to_url , data=payload)
+                n1 += 1
 	
 
 ##########################################################################################################################################################
