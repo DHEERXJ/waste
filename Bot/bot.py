@@ -356,10 +356,8 @@ def all_details(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 #####PIC_RANGE#######
-# def picture_in_range(update, context):
-	
+# def picture_in_range(update, context):	
 #     global bot_token
-	
 #     chat_id = update.message.chat_id
 #     info = update.effective_user
 #     global members
@@ -505,8 +503,6 @@ def income(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 #####################################################################################################################################################################
-
-
 def main():
     updater = Updater(
         bot_token,
