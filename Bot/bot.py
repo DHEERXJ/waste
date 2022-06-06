@@ -316,6 +316,9 @@ def aadhar(update, context):
         Sendmessage(chat_id,text)
 	
 def all_details(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
     if chat_id in members:
         funcs = [pic, aadhar, ssc, inter, bd, eamcet, caste, income]
         for i in funcs:
