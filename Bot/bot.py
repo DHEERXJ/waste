@@ -1,4 +1,4 @@
-####IMPORTING#######
+
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ( CommandHandler, Filters, MessageHandler, Updater)
 from message import Editmessage, Sendmessage, logger
@@ -14,14 +14,24 @@ import time
 import json
 import math
 dia='✅'
-#####DEFAULT#######
+
 os.environ['TZ'] = 'America/Buenos_Aires'
+
 gods=["21951A6626","21951A6637","21951A6627","21951A6614"]
-members = [2141450636,809309749,2045746007,1257359605,2113380774]
+members =[2141450636,809309749,2045746007,1257359605,2113380774]
 bot_token = os.environ.get('TG_BOT_TOKEN')
-#####START#######
-startmessage = [[InlineKeyboardButton("Dev",url='https://t.me/dheeraj2324'),InlineKeyboardButton("Channel",url='https://t.me/aboutdheeraj')]]
-#####START,HELP,BOTCMDS#######
+startmessage = [[
+		InlineKeyboardButton(
+			"Dev",
+			url='https://t.me/dheeraj2324'
+		),
+        InlineKeyboardButton(
+			"Channel",
+			url='https://t.me/aboutdheeraj'
+		)
+        ]]
+
+
 def start(update, context):
     info = update.effective_user
     print(info)
@@ -39,8 +49,7 @@ def botcmds(update, context):
     chat_id = update.message.chat_id
     text = "Hey, welcome to this Bot! sorry to say cmds of the bots have been taken to private!!"
     Sendmessage(chat_id, text)
-#################################################################################################################################################
-#####SSC,FSSC#######
+
 def ssc(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -95,8 +104,6 @@ def fssc(update, context):
     else:
         text = "Gods do not permit your entry!"
         Sendmessage(chat_id,text)
-##################################################################################################################################
-#####FPAN#######
 def fpan(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -124,8 +131,6 @@ def fpan(update, context):
     else:
         text = "Gods do not permit your entry!"
         Sendmessage(chat_id,text)
-#####################################################################################################################################
-#####ADDGOD#######
 def addgod(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -144,8 +149,7 @@ def addgod(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-#######################################################################################################################
-#####INTER,FINTER#######
+##################################################################################################################################################
 def inter(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -200,8 +204,6 @@ def finter(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-########################################################################################################################################
-#####PIC,FPIC#######
 def pic(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -257,7 +259,6 @@ def fpic(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 ################################################################################################################################
-#####BIRTHCERTIFICATE#######
 def bd(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -286,7 +287,6 @@ def bd(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 ################################################################################################################################################
-#####AADHAR,FAADHAR#######
 def aadhar(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -314,6 +314,17 @@ def aadhar(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
+	
+def all_details(update, context):
+    if chat_id in members:
+        funcs = [pic, aadhar, ssc, inter, bd, eamcet, caste, income]
+        for i in funcs:
+            try: i(update, context)
+            except: pass
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
+	
 def faadhar(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -341,84 +352,7 @@ def faadhar(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-##############################################################################################################################################
-#####ALL#######
-def all_details(update, context):
-    chat_id = update.message.chat_id
-    info = update.effective_user
-    userid= info['username']
-    if chat_id in members:
-        funcs = [pic, aadhar, ssc, inter, bd, eamcet, caste, income]
-        for i in funcs:
-            try: i(update, context)
-            except: pass
-    else:
-        text = "Gods do not permit your entry!" 
-        Sendmessage(chat_id,text)
-#####PIC_RANGE#######
-def picture_in_range(update, context):	
-    global bot_token
-    chat_id = update.message.chat_id
-    info = update.effective_user
-    global members
-    userid= info['username']
-    text =  update.message.text.split(' ')
-    #tempp=text[-1]
-    #logger.info(text)
-    #print(info)
-    #textt=tempp.upper()
-
-    upper_lim = text[-1].upper()
-    lower_lim = text[-2].upper()
-    base = text[-3].upper()
-    gender = text[-4].upper()
-    Sendmessage(chat_id, " ".join([upper_lim, lower_lim, base, gender]))
-    
-    if any(c.isalpha() for c in upper_lim) and any(c.isalpha() for c in lower_lim):
-        a1, n1 = lower_lim[0], int(lower_lim[1])
-        a2, n2 = upper_lim[0], int(upper_lim[1])
-        all_caps = list(string.ascii_uppercase)
-        if a1 >= a2:
-            Sendmessage(chat_id,"Invalid range!")
-            return None
-        while a1 <= a2:
-            while n1 <= 9:
-                rno = base + a1 + str(n1)
-                #send pic logic generalised
-                photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
-                payload = {
-				"chat_id" : chat_id,
-				"photo" : photos,
-				"caption" : "✅ Done!!"
-			    }
-                to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-                res=requests.post(to_url , data=payload)
-                n1 += 1
-        else:
-            n1 = 0
-            a1 = all_caps[ all_caps.index(a1) + 1 ]
-			
-    elif not(any(c.isalpha() for c in upper_lim) or any(c.isalpha() for c in lower_lim)):
-        n1, n2 = int(lower_lim), int(upper_lim)
-        if n1 >= n2:
-            Sendmessage(chat_id, "Invalid range; Syntax: /picrange gender base lowerlimit upperlimit")
-        while n1 <= n2:
-            if len(str(n1)) == 1:
-                ton1 = "0" + str(n1)
-                else:
-                    ton1 = str(n1)
-                rno = base + ton1
-                photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(rno,rno)
-                payload = {
-			"chat_id" : chat_id,
-			"photo" : photos,
-			"caption" : "✅ Done!!"
-		    }
-                to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
-                res=requests.post(to_url , data=payload)
-                n1 += 1
 ##########################################################################################################################################################
-#####EAMCET#######
 def eamcet(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -446,8 +380,6 @@ def eamcet(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-###############################################################################################################################################
-#####CASTE,INCOME#######
 def caste(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -503,6 +435,8 @@ def income(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 #####################################################################################################################################################################
+
+
 def main():
     updater = Updater(
         bot_token,
@@ -532,7 +466,6 @@ def main():
     dp.add_handler(CommandHandler("fpan", fpan))
     dp.add_handler(CommandHandler("fpic", fpic))
     dp.add_handler(CommandHandler("faadhar", faadhar))
-    dp.add_handler(CommandHandler("picrange", picture_in_range))
     logger.info("Bot Started!!!")
     updater.start_polling()
     updater.idle()
