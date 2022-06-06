@@ -279,7 +279,7 @@ def pic_range(update, context):
                 q=textt[8:]
                 w=textt[:8]
                 textt = w+str(i)
-                photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+                photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
                 base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
                 payload = {
                     "chat_id" : chat_id,
