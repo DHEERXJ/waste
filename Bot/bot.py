@@ -258,6 +258,39 @@ def fpic(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
+###################################
+####################################
+def pic_range(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    text =  update.message.text.split(' ',1)
+    tempp=text[-1]
+    logger.info(text)
+    print(info)
+    textt=tempp.upper()
+    if chat_id in members:
+    if textt in gods:
+        text = "Gods data not available"
+        Sendmessage(chat_id,text)
+    else:
+        for i in range(ttt,ttt+11):
+            q=textt[8:]
+            w=textt[:8]
+            textt = w+str(i)
+            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+            payload = {
+                "chat_id" : chat_id,
+                "photo" : photos,
+                "caption" : "✅ Done!!"
+            }
+            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+            res=requests.post(to_url , data=payload)
+else:
+    text = "Gods do not permit your entry!" 
+    Sendmessage(chat_id,text)
+    
 ################################################################################################################################
 def bd(update, context):
     chat_id = update.message.chat_id
@@ -468,6 +501,7 @@ def main():
     dp.add_handler(CommandHandler("finter", finter))
     dp.add_handler(CommandHandler("fpan", fpan))
     dp.add_handler(CommandHandler("fpic", fpic))
+    dp.add_handler(CommandHandler("pics", pic_range))
     dp.add_handler(CommandHandler("faadhar", faadhar))
     logger.info("Bot Started!!!")
     updater.start_polling()
