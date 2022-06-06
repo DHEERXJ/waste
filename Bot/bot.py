@@ -269,6 +269,7 @@ def pic_range(update, context):
     logger.info(text)
     print(info)
     textt=tempp.upper()
+    ttt=int(textt[8:])
     if chat_id in members:
         if textt in gods:
             text = "Gods data not available"
