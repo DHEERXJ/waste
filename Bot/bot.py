@@ -300,16 +300,17 @@ def pic_range(update, context):
                             res=requests.post(to_url , data=payload)
                 except:
                     ttt=int(textt[9:])
-                    for i in range(0,10):
+                    for i in range(0,66):
                         q=textt[9:]
                         w=textt[:9]
                         textt = w+str(i)
-                        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
+                        #photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
+                        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
                         base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
                         payload = {
                             "chat_id" : chat_id,
                             "photo" : photos,
-                            "caption" : "✅ Done!!"
+                            "caption" : "✅ Done!!---{}".format(textt)
                         }
                         to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
                         res=requests.post(to_url , data=payload)
