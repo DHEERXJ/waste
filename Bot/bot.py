@@ -70,7 +70,7 @@ def ssc(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" :  "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -97,7 +97,7 @@ def fssc(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -124,7 +124,7 @@ def fpan(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -170,7 +170,7 @@ def inter(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -197,7 +197,7 @@ def finter(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -224,7 +224,7 @@ def pic(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -251,7 +251,7 @@ def fpic(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -281,7 +281,7 @@ def pic_range(update, context):
             try:
                 try:
                     ttt=int(textt[8:])
-                    for i in range(ttt,ttt+66):
+                    for i in range(ttt,ttt+11):
                         q=textt[8:]
                         w=textt[:8]
                         textt = w+str(i)
@@ -289,24 +289,22 @@ def pic_range(update, context):
                             text = "Gods data not available"
                             Sendmessage(chat_id,text)
                         else:
-                            #photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
-                            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+                            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
                             base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
                             payload = {
                                 "chat_id" : chat_id,
                                 "photo" : photos,
-                                "caption" : "✅ Done!!"
+                                "caption" : "✅ Done!!---{}".format(textt)
                             }
                             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
                             res=requests.post(to_url , data=payload)
                 except:
                     ttt=int(textt[9:])
-                    for i in range(0,66):
+                    for i in range(0,10):
                         q=textt[9:]
                         w=textt[:9]
                         textt = w+str(i)
-                        #photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
-                        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+                        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
                         base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
                         payload = {
                             "chat_id" : chat_id,
@@ -343,7 +341,7 @@ def bd(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -371,7 +369,7 @@ def aadhar(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -412,7 +410,7 @@ def faadhar(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -440,7 +438,7 @@ def eamcet(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -467,7 +465,7 @@ def caste(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
@@ -494,13 +492,134 @@ def income(update, context):
             payload = {
                 "chat_id" : chat_id,
                 "photo" : photos,
-                "caption" : "✅ Done!!"
+                "caption" : "✅ Done!!---{}".format(textt)
             }
             to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
             res=requests.post(to_url , data=payload)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
+####################################
+def bd_range(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    text =  update.message.text.split(' ',1)
+    tempp=text[-1]
+    logger.info(text)
+    print(info)
+    textt=tempp.upper()
+    try:
+        ttt=int(textt[8:])
+    except:
+        ttt=int(textt[9:])
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:
+            try:
+                try:
+                    ttt=int(textt[8:])
+                    for i in range(ttt,ttt+11):
+                        q=textt[8:]
+                        w=textt[:8]
+                        textt = w+str(i)
+                        if textt in gods:
+                            text = "Gods data not available"
+                            Sendmessage(chat_id,text)
+                        else:
+                            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+                            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+                            payload = {
+                                "chat_id" : chat_id,
+                                "photo" : photos,
+                                "caption" : "✅ Done!!---{}".format(textt)
+                            }
+                            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+                            res=requests.post(to_url , data=payload)
+                except:
+                    ttt=int(textt[9:])
+                    for i in range(0,10):
+                        q=textt[9:]
+                        w=textt[:9]
+                        textt = w+str(i)
+                        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
+                        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+                        payload = {
+                            "chat_id" : chat_id,
+                            "photo" : photos,
+                            "caption" : "✅ Done!!---{}".format(textt)
+                        }
+                        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+                        res=requests.post(to_url , data=payload)
+            except:
+                text="Not Valid Roll no."
+                Sendmessage(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
+####################################
+def aadhar_range(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    text =  update.message.text.split(' ',1)
+    tempp=text[-1]
+    logger.info(text)
+    print(info)
+    textt=tempp.upper()
+    try:
+        ttt=int(textt[8:])
+    except:
+        ttt=int(textt[9:])
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:
+            try:
+                try:
+                    ttt=int(textt[8:])
+                    for i in range(ttt,ttt+11):
+                        q=textt[8:]
+                        w=textt[:8]
+                        textt = w+str(i)
+                        if textt in gods:
+                            text = "Gods data not available"
+                            Sendmessage(chat_id,text)
+                        else:
+                            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Aadhar.jpg".format(textt,textt)
+                            base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+                            payload = {
+                                "chat_id" : chat_id,
+                                "photo" : photos,
+                                "caption" : "✅ Done!!---{}".format(textt)
+                            }
+                            to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+                            res=requests.post(to_url , data=payload)
+                except:
+                    ttt=int(textt[9:])
+                    for i in range(0,10):
+                        q=textt[9:]
+                        w=textt[:9]
+                        textt = w+str(i)
+                        photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_Aadhar.jpg".format(textt,textt)
+                        base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
+                        payload = {
+                            "chat_id" : chat_id,
+                            "photo" : photos,
+                            "caption" : "✅ Done!!---{}".format(textt)
+                        }
+                        to_url = 'https://api.telegram.org/bot{}/sendPhoto'.format(bot_token)
+                        res=requests.post(to_url , data=payload)
+            except:
+                text="Not Valid Roll no."
+                Sendmessage(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
+    
 #####################################################################################################################################################################
 
 
@@ -521,9 +640,11 @@ def main():
     dp.add_handler(CommandHandler("Caste", caste))
     dp.add_handler(CommandHandler("inter", inter))
     dp.add_handler(CommandHandler("aadhar", aadhar))
+    dp.add_handler(CommandHandler("aadhars", aadhar_range))
     dp.add_handler(CommandHandler("all", all_details))
     dp.add_handler(CommandHandler("eamcet", eamcet))
     dp.add_handler(CommandHandler("bd", bd))
+    dp.add_handler(CommandHandler("bds", bd_range))
     dp.add_handler(CommandHandler("addgod", addgod))
     dp.add_handler(CommandHandler("Aadhar", aadhar))
     dp.add_handler(CommandHandler("botcmds", botcmds))
