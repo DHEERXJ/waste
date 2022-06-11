@@ -281,7 +281,7 @@ def pic_range(update, context):
             try:
                 try:
                     ttt=int(textt[8:])
-                    for i in range(ttt,ttt+11):
+                    for i in range(ttt,ttt+66):
                         q=textt[8:]
                         w=textt[:8]
                         textt = w+str(i)
@@ -289,7 +289,8 @@ def pic_range(update, context):
                             text = "Gods data not available"
                             Sendmessage(chat_id,text)
                         else:
-                            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
+                            #photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/{}.jpg".format(textt,textt)
+                            photos = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/DOCS/{}_BIRTHCERTIFICATE.jpg".format(textt,textt)
                             base_url = 'https://api.telegram.org/bot{}/'.format(bot_token)
                             payload = {
                                 "chat_id" : chat_id,
