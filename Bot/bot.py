@@ -18,7 +18,7 @@ dia='✅'
 os.environ['TZ'] = 'America/Buenos_Aires'
 
 gods=["21951A6626","21951A6637","21951A6627","21951A6614"]
-members =[2141450636,809309749,2045746007,1257359605,2113380774]
+members =[2141450636,809309749,2045746007,1257359605,2113380774,1134323688]
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
@@ -136,9 +136,10 @@ def addgod(update, context):
     info = update.effective_user
     userid= info['username']
     global members
+    
+    text =  update.message.text.split(' ',1)
     print(info)
     logger.info(text)
-    text =  update.message.text.split(' ',1)
     if chat_id in members:
         tempp=text[-1]
         global gods
