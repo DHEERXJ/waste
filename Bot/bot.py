@@ -634,16 +634,74 @@ def cfile(update, context):
     textt=tempp.upper()
     if chat_id in members:
         if textt in gods:
-            text = "Gods can't be seen!!"
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:
+            try:
+                file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
+                sendfile(chat_id,file_id)
+                text = "{}----[c-lab]----week{}".format(textt,numb)
+                Sendmessage(chat_id,text)
+           except:
+                text="Nasty burger didnt upload!"
+                Sendmessage(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
+###########################start karo yaha se##########################
+def efile(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    text =  update.message.text.split(' ',2)
+    tempp=text[1]
+    numb=text[2]
+    logger.info(text)
+    global members
+    print(info)
+    textt=tempp.upper()
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
             Sendmessage(chat_id,text)
         else:		
-            file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
+            file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC04/{}_week{}.pdf".format(textt,textt,numb)
             sendfile(chat_id,file_id)
-            text = "{}----[c-lab]----week{}".format(textt,numb)
+            text = "{}----[English-lab]----week{}".format(textt,numb)
             Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
+        
+        
+        ##################################################
+def apfile(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    text =  update.message.text.split(' ',2)
+    tempp=text[1]
+    numb=text[2]
+    logger.info(text)
+    global members
+    print(info)
+    textt=tempp.upper()
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods data not available"
+            Sendmessage(chat_id,text)
+        else:		
+            file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
+            sendfile(chat_id,file_id)
+            text = "{}----[AP-lab]----week{}".format(textt,numb)
+            Sendmessage(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
+        
+        
+        #boi  if didnt upload ka code likhe?kk u will? not sure how to write in tg format same as idle
+
 #####################################################################################################################################################################
 
 
@@ -669,6 +727,8 @@ def main():
     dp.add_handler(CommandHandler("eamcet", eamcet))
     dp.add_handler(CommandHandler("bd", bd))
     dp.add_handler(CommandHandler("clab", cfile))
+    dp.add_handler(CommandHandler("elab", efile))
+    dp.add_handler(CommandHandler("aplab", apfile))
     dp.add_handler(CommandHandler("bds", bd_range))
     dp.add_handler(CommandHandler("addgod", addgod))
     dp.add_handler(CommandHandler("Aadhar", aadhar))
