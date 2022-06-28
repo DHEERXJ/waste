@@ -639,12 +639,16 @@ def cfile(update, context):
         else:
             try:
                 file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
-                sendfile(chat_id,file_id)
-                text = "{}----[c-lab]----week{}".format(textt,numb)
-                Sendmessage(chat_id,text)
-            except:
-                text="Nasty burger didnt upload!"
-                Sendmessage(chat_id,text)
+                r=requests.get(file_id)
+                qq=(list(str(r)))
+                q=['<', 'R', 'e', 's', 'p', 'o', 'n', 's', 'e', ' ', '[', '2', '0', '0', ']', '>']
+                if q==qq:
+                    sendfile(chat_id,file_id)
+                    text = "{}----[c-lab]----week{}".format(textt,numb)
+                    Sendmessage(chat_id,text)
+                else:
+                    text = "Nasty burger didnt upload!"
+                    Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
@@ -666,9 +670,16 @@ def efile(update, context):
             Sendmessage(chat_id,text)
         else:		
             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC04/{}_week{}.pdf".format(textt,textt,numb)
-            sendfile(chat_id,file_id)
-            text = "{}----[English-lab]----week{}".format(textt,numb)
-            Sendmessage(chat_id,text)
+            r=requests.get(file_id)
+            qq=(list(str(r)))
+            q=['<', 'R', 'e', 's', 'p', 'o', 'n', 's', 'e', ' ', '[', '2', '0', '0', ']', '>']
+            if q==qq:
+                sendfile(chat_id,file_id)
+                text = "{}----[English-lab]----week{}".format(textt,numb)
+                Sendmessage(chat_id,text)
+            else:
+                text = "Nasty burger didnt upload!"
+                Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
@@ -692,9 +703,16 @@ def apfile(update, context):
             Sendmessage(chat_id,text)
         else:		
             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
-            sendfile(chat_id,file_id)
-            text = "{}----[AP-lab]----week{}".format(textt,numb)
-            Sendmessage(chat_id,text)
+            r=requests.get(file_id)
+            qq=(list(str(r)))
+            q=['<', 'R', 'e', 's', 'p', 'o', 'n', 's', 'e', ' ', '[', '2', '0', '0', ']', '>']
+            if q==qq:
+                sendfile(chat_id,file_id)
+                text = "{}----[AP-lab]----week{}".format(textt,numb)
+                Sendmessage(chat_id,text)
+            else:
+                text = "Nasty burger didnt upload!"
+                Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
