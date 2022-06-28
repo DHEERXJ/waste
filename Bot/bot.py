@@ -620,7 +620,31 @@ def aadhar_range(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-    
+   ##############################
+def cfile(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    text =  update.message.text.split(' ',2)
+    tempp=text[1]
+    numb=text[2]
+    logger.info(text)
+    global members
+    print(info)
+    textt=tempp.upper()
+    if chat_id in members:
+        if textt in gods:
+            text = "Gods can't be seen!!"
+            Sendmessage(chat_id,text)
+        else:		
+            file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
+            sendfile(chat_id,file_id)
+            text = "{}----[c-lab]----week{}".format(textt,numb)
+            Sendmessage =(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)###################################################
+
 #####################################################################################################################################################################
 
 
@@ -645,6 +669,7 @@ def main():
     dp.add_handler(CommandHandler("all", all_details))
     dp.add_handler(CommandHandler("eamcet", eamcet))
     dp.add_handler(CommandHandler("bd", bd))
+    dp.add_handler(CommandHandler("clab", cfile))
     dp.add_handler(CommandHandler("bds", bd_range))
     dp.add_handler(CommandHandler("addgod", addgod))
     dp.add_handler(CommandHandler("Aadhar", aadhar))
