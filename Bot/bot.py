@@ -640,11 +640,10 @@ def cfile(update, context):
             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
             sendfile(chat_id,file_id)
             text = "{}----[c-lab]----week{}".format(textt,numb)
-            Sendmessage =(chat_id,text)
+            Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
-        Sendmessage(chat_id,text)###################################################
-
+        Sendmessage(chat_id,text)
 #####################################################################################################################################################################
 
 
