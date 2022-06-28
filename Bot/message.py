@@ -25,3 +25,8 @@ def Editmessage(chat_id, text, msg_id, reply_markup=None):
         bot.edit_message_text(chat_id=chat_id, text=text, message_id=msg_id,parse_mode="HTML", reply_markup=reply_markup)
     except Exception as e:
         logger.info(e)
+def sendfile(chat_id, file_id):
+    try:
+        bot.send_document(chat_id=chat_id, document = file_id)
+    except Exception as e:
+        logger.info(e)
