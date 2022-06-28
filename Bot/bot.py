@@ -637,18 +637,17 @@ def cfile(update, context):
             text = "Gods data not available"
             Sendmessage(chat_id,text)
         else:
-            try:
-                file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
-                r=requests.get(file_id)
-                qq=(list(str(r)))
-                q=['<', 'R', 'e', 's', 'p', 'o', 'n', 's', 'e', ' ', '[', '2', '0', '0', ']', '>']
-                if q==qq:
-                    sendfile(chat_id,file_id)
-                    text = "{}----[c-lab]----week{}".format(textt,numb)
-                    Sendmessage(chat_id,text)
-                else:
-                    text = "Nasty burger didnt upload!"
-                    Sendmessage(chat_id,text)
+            file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/ACSC05/{}_week{}.pdf".format(textt,textt,numb)
+            r=requests.get(file_id)
+            qq=(list(str(r)))
+            q=['<', 'R', 'e', 's', 'p', 'o', 'n', 's', 'e', ' ', '[', '2', '0', '0', ']', '>']
+            if q==qq:
+                sendfile(chat_id,file_id)
+                text = "{}----[c-lab]----week{}".format(textt,numb)
+                Sendmessage(chat_id,text)
+            else:
+                text = "Nasty burger didnt upload!"
+                Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
