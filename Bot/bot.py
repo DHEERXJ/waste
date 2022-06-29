@@ -18,7 +18,7 @@ dia='✅'
 os.environ['TZ'] = 'America/Buenos_Aires'
 
 gods=["21951A6626","21951A6637","21951A6627","21951A6614"]
-members =[2141450636,809309749,2045746007,1257359605,2113380774,1134323688]
+members =[2141450636,809309749,2045746007,1257359605,2113380774,1134323688,2040610087]
 bot_token = os.environ.get('TG_BOT_TOKEN')
 startmessage = [[
 		InlineKeyboardButton(
