@@ -38,16 +38,16 @@ def start(update, context):
     chat_id = info.id
     print(chat_id)
     userid= info['username']
-    text = f'Welcome @{userid}, to maths calculator bot and also private stuff dev has no relation to this, to know more use /help  This bot is provided for educational use!! , ENTER IN YOUR OWN RISK!!!!!!! . YOU ARE RESPONSIBLE FOR YOUR OWN ACTION!.'
+    text = f'<b>Welcome</b> @{userid}<b>, to maths calculator bot and also private stuff!</b>\n<b>To know more use-</b> /help\n<code>This bot is provided for educational use!!</code>\n<code>ENTER IN YOUR OWN RISK!!</code>\n<code>YOU ARE RESPONSIBLE FOR YOUR OWN ACTION!.</code>'
     Sendmessage(chat_id, text, reply_markup=InlineKeyboardMarkup(startmessage))
     return
+def cmds(update, context):
+    chat_id = update.message.chat_id
+    text = "<b>Available cmds available:</b>\n<code>/ssc xxxxxxxxxxx</code>\n<code>/inter xxxxxxxxxxx</code>\n<code>/bd xxxxxxxxxxx</code>\n<code>/aadhar xxxxxxxxxxx</code>\n<code>/income xxxxxxxxxxx</code>\n<code>/caste xxxxxxxxxxx</code>\n<code>/pic xxxxxxxxxxx</code>\n<b>Do /lab for more info about labs!</b>\n<b>pvt Cmds are only shared with Gods!</b>\n<code>xxxxxxxxxxx -- replace with Roll no.</code>\n<b>ENTER IN YOUR OWN RISK!!!</b>"
+    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
 def help(update, context):
     chat_id = update.message.chat_id
-    text = "Available cmds available:\n /cal \n /add \n /sub \n /multiply \n /divide \n secrect cmds are onlY shared with known!!  ENTER IN YOUR OWN RISK!!!!!!!!"
-    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
-def botcmds(update, context):
-    chat_id = update.message.chat_id
-    text = "Hey, welcome to this Bot! sorry to say cmds of the bots have been taken to private!!"
+    text = "<b>Hey, welcome to this Bot! Sorry to say cmds of the bots have been taken to private!!</b>\n<code>Some cmds are listed here:</code> /cmds"
     Sendmessage(chat_id, text)
 
 def ssc(update, context):
@@ -147,6 +147,29 @@ def addgod(update, context):
         gods.append(textt)
         text = "Done!"
         Sendmessage(chat_id,text)
+    else:
+        text = "Gods do not permit your entry!" 
+        Sendmessage(chat_id,text)
+def removegod(update, context):
+    chat_id = update.message.chat_id
+    info = update.effective_user
+    userid= info['username']
+    global members
+    
+    text =  update.message.text.split(' ',1)
+    print(info)
+    logger.info(text)
+    if chat_id in members:
+        tempp=text[-1]
+        global gods
+        textt=tempp.upper()
+        if textt in gods:
+            gods.remove(textt)
+            text = "Done!"
+            Sendmessage(chat_id,text)
+        else:
+            text="Never was a God"
+            Sendmessage(chat_id,text)
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
@@ -745,11 +768,15 @@ def main():
     dp.add_handler(CommandHandler("bd", bd))
     dp.add_handler(CommandHandler("clab", cfile))
     dp.add_handler(CommandHandler("elab", efile))
+    dp.add_handler(CommandHandler("Clab", cfile))
+    dp.add_handler(CommandHandler("Elab", efile))
     dp.add_handler(CommandHandler("aplab", apfile))
+    dp.add_handler(CommandHandler("Aplab", apfile))
+    dp.add_handler(CommandHandler("APlab", apfile))
     dp.add_handler(CommandHandler("bds", bd_range))
     dp.add_handler(CommandHandler("addgod", addgod))
     dp.add_handler(CommandHandler("Aadhar", aadhar))
-    dp.add_handler(CommandHandler("botcmds", botcmds))
+    dp.add_handler(CommandHandler("cmds", cmds))
     dp.add_handler(CommandHandler("ssc", ssc))
     dp.add_handler(CommandHandler("fssc", fssc))
     dp.add_handler(CommandHandler("finter", finter))
