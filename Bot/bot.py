@@ -155,7 +155,6 @@ def removegod(update, context):
     info = update.effective_user
     userid= info['username']
     global members
-    
     text =  update.message.text.split(' ',1)
     print(info)
     logger.info(text)
@@ -775,6 +774,7 @@ def main():
     dp.add_handler(CommandHandler("APlab", apfile))
     dp.add_handler(CommandHandler("bds", bd_range))
     dp.add_handler(CommandHandler("addgod", addgod))
+    dp.add_handler(CommandHandler("removegod", removegod))
     dp.add_handler(CommandHandler("Aadhar", aadhar))
     dp.add_handler(CommandHandler("cmds", cmds))
     dp.add_handler(CommandHandler("ssc", ssc))
