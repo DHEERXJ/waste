@@ -14,6 +14,7 @@ import requests
 import time
 import json
 import math
+import html5lib
 dia='✅'
 
 os.environ['TZ'] = 'America/Buenos_Aires'
