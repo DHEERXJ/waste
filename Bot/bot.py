@@ -768,30 +768,44 @@ def attandance(update, context):
               aa=str(r.content[24973:28000])
               a=("English")
               t=aa.index(a)
-              text=(a,":",aa[t+238:t+238+7])
+              text=(f"""
+'English : ',aa[t+238:t+238+7]
+""")
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
-              print("P&S :",aa[t+205+43+9:t+205+43+9+7])
+              text=(f"""
+'P&S : ',aa[t+205+43+9:t+205+43+9+7]
+""")
               a=("Applied Physics")
               t=aa.index(a)
-              text=("AP:",aa[t+194+52:t+52+194+7])
+              text=(f"""
+'AP : ',aa[t+194+52:t+52+194+7]
+""")
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C"
               t=aa.index(a)
-              text=("PPSC :",aa[t+218+52:t+218+52+7])
+              text=(f"""
+'PPSC : ',aa[t+218+52:t+218+52+7]
+""")
               Sendmessage(chat_id,text)
               a="English Language and Communication Skills Laboratory"
               t=aa.index(a)
-              text=("Eng lab:",aa[t+231+52:t+231+52+7])
+              text=(f"""
+'Eng lab : ',aa[t+231+52:t+231+52+7]
+""")
               Sendmessage(chat_id,text)
               a=("Physics Laboratory")
               t=aa.index(a)
-              text=("AP lab:",aa[t+197+52:t+197+7+52])
+              text=(f"""
+'AP lab : ',aa[t+197+52:t+197+7+52]
+""")
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C Laboratory"
               t=aa.index(a)
-              text=("C lab:",aa[t+229+52:t+229+7+52])
+              text=(f"""
+'C lab : ',aa[t+229+52:t+229+7+52]
+""")
               Sendmessage(chat_id,text)
             
 #             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
