@@ -771,26 +771,26 @@ def attandance(update, context):
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
-              text="P&S:{}".format(aa[t+205+43+9+1:t+205+43+9+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              text="P&S:{}".format(aa[t+205+43+9+1:t+205+43+9+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               a=("Applied Physics")
               t=aa.index(a)
-              text="AP:{}".format(aa[t+194+52+1:t+52+194+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              text="AP:{}".format(aa[t+194+52+1:t+52+194+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C"
               t=aa.index(a)
-              text="PPSC:{}".format(aa[t+218+52+1:t+218+52+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              text="PPSC:{}".format(aa[t+218+52+1:t+218+52+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               Sendmessage(chat_id,text)
               a="English Language and Communication Skills Laboratory"
               t=aa.index(a)
-              text="Eng lab:{}".format(aa[t+231+52+1:t+231+52+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              text="Eng lab:{}".format(aa[t+231+52+1:t+231+52+7+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               Sendmessage(chat_id,text)
               a=("Physics Laboratory")
               t=aa.index(a)
-              text="AP lab:{}".format(aa[t+197+52+1:t+197+7+52+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              text="AP lab:{}".format(aa[t+197+52+1:t+197+7+52+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C Laboratory"
               t=aa.index(a)
-              text="C lab:{}".format(aa[t+229+52+1:t+229+7+52+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              text="<b>C lab:</b> <code>{}%</code>".format(aa[t+229+52+1:t+229+7+52+1].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               Sendmessage(chat_id,text)
             
 #             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
