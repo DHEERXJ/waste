@@ -768,44 +768,30 @@ def attandance(update, context):
               aa=str(r.content[24973:28000])
               a=("English")
               t=aa.index(a)
-              text=(f"""
-<b>English:</b> <code> {aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")}</code>
-""")
+              text="<b>English:</b> <code> {aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")}</code>"
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
-              text=(f"""
-<b>P&S:</b> <code> {aa[t+205+43+9+1:t+205+43+9+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>
-""")
+              text="<b>P&S:</b> <code> {aa[t+205+43+9+1:t+205+43+9+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>"
               a=("Applied Physics")
               t=aa.index(a)
-              text=(f"""
-<b>AP:</b> <code> {aa[t+194+52+1:t+52+194+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>
-""")
+              text="<b>AP:</b> <code> {aa[t+194+52+1:t+52+194+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>"
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C"
               t=aa.index(a)
-              text=(f"""
-<b>PPSC:</b> <code> {aa[t+218+52+1:t+218+52+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")}</code>
-""")
+              text="<b>PPSC:</b> <code> {aa[t+218+52+1:t+218+52+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")}</code>"
               Sendmessage(chat_id,text)
               a="English Language and Communication Skills Laboratory"
               t=aa.index(a)
-              text=(f"""
-<b>Eng lab:</b> <code> {aa[t+231+52+1:t+231+52+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>
-""")
+              text="<b>Eng lab:</b> <code> {aa[t+231+52+1:t+231+52+7+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>"
               Sendmessage(chat_id,text)
               a=("Physics Laboratory")
               t=aa.index(a)
-              text=(f"""
-<b>AP lab:</b> <code> {aa[t+197+52+1:t+197+7+52+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>
-""")
+              text="<b>AP lab:</b> <code> {aa[t+197+52+1:t+197+7+52+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>"
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C Laboratory"
               t=aa.index(a)
-              text=(f"""
-<b>C lab:</b> <code> {aa[t+229+52+1:t+229+7+52+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")}) </code>
-""")
+              text="<b>C lab:</b> <code> {aa[t+229+52+1:t+229+7+52+1].replace("<", "").replace(">", "").replace("\\", "").replace("t", "").replace("/", "")} </code>"
               Sendmessage(chat_id,text)
             
 #             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
