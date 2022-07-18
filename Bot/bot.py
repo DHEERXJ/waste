@@ -754,10 +754,7 @@ def attandance(update, context):
             text = "Gods data not available"
             Sendmessage(chat_id,text)
         else:
-            login_data={
-  'username':username,
-  'password':password
-}
+            login_data={'username':username,'password':password}
             with requests.Session() as s:
               url = "https://samvidha.iare.ac.in/pages/login/checkUser.php"
               r= s.get(url)
@@ -768,7 +765,9 @@ def attandance(update, context):
               aa=str(r.content[24973:28000])
               a=("English")
               t=aa.index(a)
-              text="English:{aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","")}"
+              print(t)
+              text="English:{}".format(aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
+              print(text)
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
