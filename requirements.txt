@@ -6,3 +6,6 @@ bs4
 throwbin
 telepot
 pillow
+bs4
+BeautifulSoup
+html5lib
