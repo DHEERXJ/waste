@@ -765,9 +765,7 @@ def attandance(update, context):
               aa=str(r.content[24973:28000])
               a=("English")
               t=aa.index(a)
-              print(t)
-              text="<b>English:</b> <code>{}%</code>".format(aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/",""))
-              print(text)
+              text="<b>English:</b> <code>{}%</code>".format(aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d",""))
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
