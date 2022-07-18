@@ -769,42 +769,42 @@ def attandance(update, context):
               a=("English")
               t=aa.index(a)
               text=(f"""
-<b>English:</b> <code>str({aa[t+238:t+238+7]})</code>
+<b>English:</b> <code>str({aa[t+238+1:t+238+1+7]})</code>
 """)
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
               text=(f"""
-<b>P&S:</b> <code>str({aa[t+205+43+9:t+205+43+9+7]})</code>
+<b>P&S:</b> <code>str({aa[t+205+43+9+1:t+205+43+9+7+1]})</code>
 """)
               a=("Applied Physics")
               t=aa.index(a)
               text=(f"""
-<b>AP:</b> <code>str({aa[t+194+52:t+52+194+7]})</code>
+<b>AP:</b> <code>str({aa[t+194+52+1:t+52+194+7+1]})</code>
 """)
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C"
               t=aa.index(a)
               text=(f"""
-<b>PPSC:</b> <code>str({aa[t+218+52:t+218+52+7]})</code>
+<b>PPSC:</b> <code>str({aa[t+218+52+1:t+218+52+7+1]})</code>
 """)
               Sendmessage(chat_id,text)
               a="English Language and Communication Skills Laboratory"
               t=aa.index(a)
               text=(f"""
-<b>Eng lab:</b> <code>str({aa[t+231+52:t+231+52+7]})</code>
+<b>Eng lab:</b> <code>str({aa[t+231+52+1:t+231+52+7+1]})</code>
 """)
               Sendmessage(chat_id,text)
               a=("Physics Laboratory")
               t=aa.index(a)
               text=(f"""
-<b>AP lab:</b> <code>str({aa[t+197+52:t+197+7+52]})</code>
+<b>AP lab:</b> <code>str({aa[t+197+52+1:t+197+7+52+1]})</code>
 """)
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C Laboratory"
               t=aa.index(a)
               text=(f"""
-<b>C lab:</b> <code>str({aa[t+229+52:t+229+7+52]})</code>
+<b>C lab:</b> <code>str({aa[t+229+52+1:t+229+7+52+1]})</code>
 """)
               Sendmessage(chat_id,text)
             
