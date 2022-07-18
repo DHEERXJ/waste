@@ -283,7 +283,7 @@ def fpic(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-###################################
+#################################
 ####################################
 def pic_range(update, context):
     chat_id = update.message.chat_id
