@@ -7,5 +7,5 @@ throwbin
 telepot
 pillow
 bs4
-BeautifulSoup
+beautifulsoup4
 html5lib
