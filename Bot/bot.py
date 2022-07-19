@@ -750,7 +750,7 @@ def attendance(update, context):
     logger.info(text)
     print(info)
     Deletemessage(chat_id, update.message.message_id)
-    text = "<code> {} </code> -- <b>Attendance</b>"
+    text = "<code> {} </code> -- <b>Attendance</b>".format(username)
     Sendmessage(chat_id,text)
     if True:
         if False:
