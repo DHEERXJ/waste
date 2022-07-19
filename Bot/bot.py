@@ -174,7 +174,7 @@ def removegod(update, context):
     else:
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
-##############################################################################################################################################
+###################################################################################################################################
 def inter(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
@@ -740,76 +740,6 @@ def apfile(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 ######################################################################################################################
-def attendance(update, context):
-    chat_id = update.message.chat_id
-    info = update.effective_user
-    userid= info['username']
-    text =  update.message.text.split(' ',2)
-    username=text[1]
-    password=text[2]
-    logger.info(text)
-    print(info)
-    Deletemessage(chat_id, update.message.message_id)
-    text = "<code> {} </code> -- <b>Attendance</b>".format(username)
-    Sendmessage(chat_id,text)
-    if True:
-        if False:
-            text = "Gods data not available"
-            Sendmessage(chat_id,text)
-        else:
-            login_data={'username':username,'password':password}
-            with requests.Session() as s:
-              url = "https://samvidha.iare.ac.in/pages/login/checkUser.php"
-              r= s.get(url)
-              soup = BeautifulSoup(r.content, 'html5lib')
-              q=s.post(url,data=login_data)
-              url = "https://samvidha.iare.ac.in/home?action=stud_att_STD"
-              r= s.get(url)
-              aa=str(r.content[24973:28000])
-              a=("English")
-              t=aa.index(a)
-              text="<b>English:</b> <code>{}%</code>".format(aa[t+238+1-2:t+238+1+7+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              Sendmessage(chat_id,text)
-              a="Probability and Statistics"
-              t=aa.index(a)
-              text="<b>P&S:</b> <code>{}%</code>".format(aa[t+205+43+9+1-2:t+205+43+9+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              a=("Applied Physics")
-              t=aa.index(a)
-              text="<b>AP:</b> <code>{}%</code>".format(aa[t+194+52-2+1:t+52+194+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              Sendmessage(chat_id,text)
-              a="Programming for Problem Solving using C"
-              t=aa.index(a)
-              text="<b>PPSC:</b> <code>{}%</code>".format(aa[t+218+52-2+1:t+218+52+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              Sendmessage(chat_id,text)
-              a="English Language and Communication Skills Laboratory"
-              t=aa.index(a)
-              text="<b>Eng lab:</b> <code>{}%</code>".format(aa[t+231+52+1-2:t+231+52+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              Sendmessage(chat_id,text)
-              a=("Physics Laboratory")
-              t=aa.index(a)
-              text="<b>AP lab:</b> <code>{}%</code>".format(aa[t+197+52+1-2:t+197+7+52+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              Sendmessage(chat_id,text)
-              a="Programming for Problem Solving using C Laboratory"
-              t=aa.index(a)
-              text="<b>C lab:</b> <code>{}%</code>".format(aa[t+229+52+1-2:t+229+7+52+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\","").replace("'",""))
-              Sendmessage(chat_id,text)
-            
-#             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
-#             r=requests.get(file_id)
-#             qq=(list(str(r)))
-#             q=['<', 'R', 'e', 's', 'p', 'o', 'n', 's', 'e', ' ', '[', '2', '0', '0', ']', '>']
-#             if q==qq:
-#                 sendfile(chat_id,file_id)
-#                 text = "{}----[AP-lab]----week{}".format(textt,numb)
-#             else:
-#                 text = "Nasty burger didnt upload!"
-#                 Sendmessage(chat_id,text)
-    else:
-        text = "Gods do not permit your entry!" 
-        Sendmessage(chat_id,text)        
-        
-        #boi  if didnt upload ka code likhe?kk u will? not sure how to write in tg format same as idle
-
 #####################################################################################################################################################################
 
 
@@ -853,8 +783,7 @@ def main():
     dp.add_handler(CommandHandler("fpic", fpic))
     dp.add_handler(CommandHandler("pics", pic_range))
     dp.add_handler(CommandHandler("faadhar", faadhar))
-    #dp.add_handler(CommandHandler("login", login))
-    dp.add_handler(CommandHandler("attendance", attendance))
+
 
     logger.info("Bot Started!!!")
     updater.start_polling()
