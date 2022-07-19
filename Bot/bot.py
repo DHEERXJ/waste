@@ -1,7 +1,7 @@
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ( CommandHandler, Filters, MessageHandler, Updater)
-from message import Editmessage, Sendmessage, logger, sendfile
+from message import Editmessage, Sendmessage, logger, sendfile, Deletemessage
 import os
 import telepot
 import urllib.request
@@ -749,6 +749,9 @@ def attendance(update, context):
     password=text[2]
     logger.info(text)
     print(info)
+    Deletemessage(chat_id, update.message.message_id)
+    text = "<code> {} </code> -- <b>Attendance</b>"
+    Sendmessage(chat_id,text)
     if True:
         if False:
             text = "Gods data not available"
