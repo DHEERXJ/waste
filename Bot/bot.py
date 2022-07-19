@@ -740,7 +740,7 @@ def apfile(update, context):
         text = "Gods do not permit your entry!" 
         Sendmessage(chat_id,text)
 ######################################################################################################################
-def attandance(update, context):
+def attendance(update, context):
     chat_id = update.message.chat_id
     info = update.effective_user
     userid= info['username']
@@ -765,30 +765,30 @@ def attandance(update, context):
               aa=str(r.content[24973:28000])
               a=("English")
               t=aa.index(a)
-              text="<b>English:</b> <code>{}%</code>".format(aa[t+238+1:t+238+1+7].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>English:</b> <code>{}%</code>".format(aa[t+238+1-2:t+238+1+7+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               Sendmessage(chat_id,text)
               a="Probability and Statistics"
               t=aa.index(a)
-              text="<b>P&S:</b> <code>{}%</code>".format(aa[t+205+43+9+1+2:t+205+43+9+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>P&S:</b> <code>{}%</code>".format(aa[t+205+43+9+1-2:t+205+43+9+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               a=("Applied Physics")
               t=aa.index(a)
-              text="<b>AP:</b> <code>{}%</code>".format(aa[t+194+52+2+1:t+52+194+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>AP:</b> <code>{}%</code>".format(aa[t+194+52-2+1:t+52+194+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C"
               t=aa.index(a)
-              text="<b>PPSC:</b> <code>{}%</code>".format(aa[t+218+52+2+1:t+218+52+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>PPSC:</b> <code>{}%</code>".format(aa[t+218+52-2+1:t+218+52+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               Sendmessage(chat_id,text)
               a="English Language and Communication Skills Laboratory"
               t=aa.index(a)
-              text="<b>Eng lab:</b> <code>{}%</code>".format(aa[t+231+52+1+2:t+231+52+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>Eng lab:</b> <code>{}%</code>".format(aa[t+231+52+1-2:t+231+52+7+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               Sendmessage(chat_id,text)
               a=("Physics Laboratory")
               t=aa.index(a)
-              text="<b>AP lab:</b> <code>{}%</code>".format(aa[t+197+52+1+2:t+197+7+52+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>AP lab:</b> <code>{}%</code>".format(aa[t+197+52+1-2:t+197+7+52+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               Sendmessage(chat_id,text)
               a="Programming for Problem Solving using C Laboratory"
               t=aa.index(a)
-              text="<b>C lab:</b> <code>{}%</code>".format(aa[t+229+52+1+2:t+229+7+52+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
+              text="<b>C lab:</b> <code>{}%</code>".format(aa[t+229+52+1-2:t+229+7+52+1+2].replace("<", "").replace(">", "").replace("\t", "").replace("\n","").replace("t","").replace("/","").replace("d","").replace("\\",""))
               Sendmessage(chat_id,text)
             
 #             file_id = "https://iare-data.s3.ap-south-1.amazonaws.com/uploads/STUDENTS/{}/LAB/SEM2/AHSC05/{}_week{}.pdf".format(textt,textt,numb)
@@ -851,7 +851,7 @@ def main():
     dp.add_handler(CommandHandler("pics", pic_range))
     dp.add_handler(CommandHandler("faadhar", faadhar))
     #dp.add_handler(CommandHandler("login", login))
-    dp.add_handler(CommandHandler("attandance", attandance))
+    dp.add_handler(CommandHandler("attendance", attendance))
 
     logger.info("Bot Started!!!")
     updater.start_polling()
