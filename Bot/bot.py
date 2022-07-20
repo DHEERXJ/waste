@@ -40,13 +40,17 @@ def start(update, context):
     chat_id = info.id
     print(chat_id)
     userid= info['username']
-    text = f'<b>Welcome</b> @{userid}<b>, to maths calculator bot and also private stuff!</b>\n<b>To know more use-</b> /help\n<code>This bot is provided for educational use!!</code>\n<code>ENTER IN YOUR OWN RISK!!</code>\n<code>YOU ARE RESPONSIBLE FOR YOUR OWN ACTION!.</code>'
+    text = f'<b>Welcome</b> @{userid}<b>Nothing much here </b>\n<b>To know more use-</b> /help\n'
     Sendmessage(chat_id, text, reply_markup=InlineKeyboardMarkup(startmessage))
     return
 def cmds(update, context):
-    chat_id = update.message.chat_id
-    text = "<b>Available cmds available:</b>\n<code>/ssc xxxxxxxxxxx</code>\n<code>/inter xxxxxxxxxxx</code>\n<code>/bd xxxxxxxxxxx</code>\n<code>/aadhar xxxxxxxxxxx</code>\n<code>/income xxxxxxxxxxx</code>\n<code>/caste xxxxxxxxxxx</code>\n<code>/pic xxxxxxxxxxx</code>\n<b>Do /lab for more info about labs!</b>\n<b>pvt Cmds are only shared with Gods!</b>\n<code>xxxxxxxxxxx -- replace with Roll no.</code>\n<b>ENTER IN YOUR OWN RISK!!!</b>"
-    Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+    if chat_id in members:
+        chat_id = update.message.chat_id
+        text = "<b>Available cmds available:</b>\n<code>/ssc xxxxxxxxxxx</code>\n<code>/inter xxxxxxxxxxx</code>\n<code>/bd xxxxxxxxxxx</code>\n<code>/aadhar xxxxxxxxxxx</code>\n<code>/income xxxxxxxxxxx</code>\n<code>/caste xxxxxxxxxxx</code>\n<code>/pic xxxxxxxxxxx</code>\n<b>Do /lab for more info about labs!</b>\n<b>pvt Cmds are only shared with Gods!</b>\n<code>xxxxxxxxxxx -- replace with Roll no.</code>\n<b>ENTER IN YOUR OWN RISK!!!</b>"
+        Sendmessage(chat_id, text, reply_markup= InlineKeyboardMarkup(startmessage))
+    else:
+        text = "Gods do not permit your entry!"
+        Sendmessage(chat_id,text)
 def help(update, context):
     chat_id = update.message.chat_id
     text = "<b>Hey, welcome to this Bot! Sorry to say cmds of the bots have been taken to private!!</b>\n<code>Some cmds are listed here:</code> /cmds"
